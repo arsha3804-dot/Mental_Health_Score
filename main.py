@@ -42,11 +42,12 @@ class PredictionResponse(BaseModel):
     #6.777777 -> float
 
 
-
+from fastapi.responses import FileResponse
 
 @app.get("/")
 def home():
     return FileResponse("index.html")
+
 
 @app.post('/predict', response_model=PredictionResponse) #6.77777
 def predict(data: StudentData):
